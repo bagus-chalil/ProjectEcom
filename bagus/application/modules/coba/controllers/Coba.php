@@ -7,6 +7,6 @@ class Coba extends CI_Controller {
 	{
 		$data['title']="Login";
 		modules::run('login/Login');
-        $this->load->view('coba',$data);
+        $this->load->view('coba');
 	}
 }
