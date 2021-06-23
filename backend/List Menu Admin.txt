@@ -1,0 +1,18 @@
+Admin
+
+Dashboard
+-Dashboard
+
+Event
+-Kategori Event
+-Tabel Event ->CRUD
+-Verifikasi Event
+-E-Sertifikat
+
+Pembayaran
+-List Pembayaran
+-Verifikasi Pembayaran
+-List Harga User->CRUD
+
+Blog
+-List Blog->CRUD
