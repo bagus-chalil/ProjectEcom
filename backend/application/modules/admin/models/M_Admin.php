@@ -40,4 +40,56 @@ class M_Admin extends CI_Model
         $this->db->where('id',$this->input->post('id'));
         return $this->db->update('user_sub_menu',$data);
     }
+    function getPenjualanEvent(){
+        $tahun=date("Y");
+        $query = "SELECT id,bulan as bln,event from bulan 
+        LEFT JOIN( 
+            SELECT MONTH(tgl_event) AS name, COUNT(category_id) AS event 
+            FROM event 
+            WHERE YEAR(tgl_event) = '$tahun'
+            GROUP BY MONTH(tgl_event)
+            ) 
+        evt ON (bulan.id=evt.name) ORDER BY bulan.id ASC";
+    return $this->db->query($query);
+    }
+    function getPenjualanKategori(){
+        $tahun=date("Y");
+        $query = 
+        "SELECT id,bulan,webinar,lomba,workshop from bulan 
+         LEFT JOIN( 
+            SELECT MONTH(tgl_event) AS tanggal, 
+            COUNT(IF(category_id = 1, category_id, null)) as webinar, 
+            COUNT(IF(category_id = 2, category_id, null)) as lomba, 
+            COUNT(IF(category_id = 3, category_id, null)) as workshop 
+            FROM event 
+            WHERE YEAR(tgl_event) = '$tahun'
+            GROUP BY MONTH(tgl_event)) 
+         evt ON (bulan.id=evt.tanggal) 
+         ORDER BY bulan.id ASC";
+    return $this->db->query($query);
+    }
+    function getUser(){
+        $query = 
+        "SELECT user_role.role AS role,COUNT(user.role_id) AS position 
+         FROM user 
+         JOIN user_role 
+         ON user.role_id=user_role.id 
+         GROUP BY (user_role.id)";
+    return $this->db->query($query);
+    }
+    function getJumlahUser(){
+        $query = 
+        "SELECT COUNT(id) as jml_user FROM user";
+    return $this->db->query($query);
+    }
+    function getJumlahEvent(){
+        $query = 
+        "SELECT COUNT(id) as jml_event FROM event";
+    return $this->db->query($query);
+    }
+    function getJumlahBlog(){
+        $query = 
+        "SELECT COUNT(id) as jml_blog FROM blog";
+    return $this->db->query($query);
+    }
 }

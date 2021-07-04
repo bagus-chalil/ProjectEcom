@@ -17,6 +17,7 @@
                         <h5 class="card-title">My Profile</h5>
                         <p class="card-text">Name : <?= $user ['name'] ?></p>
                         <p class="card-text">Email : <?= $user ['email'] ?></p>
+                        <p class="card-text">Telephone : <?= $user ['telephone'] ?></p>
                         <p class="card-text"><small class="text-muted">Member Since : <?= date('d F y', $user['date_created']); ?></small></p></p>
                     </div>
                     </div>

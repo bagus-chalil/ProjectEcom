@@ -147,7 +147,8 @@
                                 <i data-feather="settings" class="svg-icon"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" onclick="setDarkMode(true)" >Dark Mode <i class="fas fa-fw fa-eye"></i> </a>
+                                <a class="dropdown-item" onclick="setDarkMode(false)" >Dark Mode <i class="fas fa-fw fa-eye-slash"></i> </a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
@@ -208,7 +209,7 @@
                                         class="svg-icon mr-2 ml-1"></i>
                                     Inbox</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
+                                <a class="dropdown-item" href="<?= base_url('profil/edit'); ?>"><i data-feather="settings"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Account Setting</a>
                                 <div class="dropdown-divider"></div>
