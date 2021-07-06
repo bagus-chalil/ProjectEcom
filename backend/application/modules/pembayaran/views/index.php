@@ -18,24 +18,24 @@
                                         <div class="card card-hover">
                                             <div class="p-2 bg-primary text-center">
                                                 <h1 class="font-light text-white">
-                                                <?php foreach ($get_jmlevent as $ev) {
-                                                    echo $ev['jml'];
+                                                <?php foreach ($get_jmlbayar as $jb) {
+                                                    echo $jb['jml'];
                                                 }?>
                                                 </h1>
-                                                <h6 class="text-white">Total Event</h6>
+                                                <h6 class="text-white">Total Transaksi</h6>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Column -->
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
-                                            <div class="p-2 bg-cyan text-center">
+                                            <div class="p-2 bg-warning text-center">
                                                 <h1 class="font-light text-white">
-                                                <?php foreach ($get_jmleventbln as $jb) {
-                                                    echo $jb['jmlb'];
+                                                <?php foreach ($get_jmlpending as $jp) {
+                                                    echo $jp['statusp'];
                                                 }?>
                                                 </h1>
-                                                <h6 class="text-white">Responded</h6>
+                                                <h6 class="text-white">Belum terverifikasi</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -44,11 +44,11 @@
                                         <div class="card card-hover">
                                             <div class="p-2 bg-success text-center">
                                                 <h1 class="font-light text-white">
-                                                <?php foreach ($get_jmltersedia as $jt) {
-                                                    echo $jt['statuss'];
+                                                <?php foreach ($get_jmlsuccess as $js) {
+                                                    echo $js['statuss'];
                                                 }?>
                                                 </h1>
-                                                <h6 class="text-white">Event Tersedia</h6>
+                                                <h6 class="text-white">Transaksi Success</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -57,11 +57,11 @@
                                         <div class="card card-hover">
                                             <div class="p-2 bg-danger text-center">
                                                 <h1 class="font-light text-white">
-                                                <?php foreach ($get_jmltutup as $jp) {
-                                                    echo $jp['statusf'];
+                                                <?php foreach ($get_jmlfailed as $jf) {
+                                                    echo $jf['statusf'];
                                                 }?>
                                                 </h1>
-                                                <h6 class="text-white">Event Tutup</h6>
+                                                <h6 class="text-white">Transaksi Gagal</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -81,42 +81,46 @@
                                     <thead>
                                     <tr>
                                         <th class="text-center">No.</th>
-                                        <th class="text-center">Event ID </th>
-                                        <th class="text-center">Nama </th>
-                                        <th class="text-center">Kategori</th>
-                                        <th class="text-center">Deskripsi</th>
-                                        <th class="text-center">Author</th>
-                                        <th class="text-center">Date Created</th>
-                                        <th class="text-center">Harga</th>
-                                        <th class="text-center">Kuota</th>
-                                        <th class="text-center">Tanggal Event</th>
+                                        <th class="text-center">Order ID</th>
+                                        <th class="text-center">Event ID</th>
+                                        <th class="text-center">Judul</th>
+                                        <th class="text-center">Nama</th>
+                                        <th class="text-center">Total</th>
+                                        <th class="text-center">Payment Type</th>
+                                        <th class="text-center">Waktu transaksi</th>
+                                        <th class="text-center">Bank</th>
                                         <th class="text-center">Status</th>
-                                        <th width="20%" class="text-center">Gambar</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                         <tbody>
                                         <?php $no = 1; ?>
-                                        <?php foreach ($list_event as $li){ ?>
+                                        <?php foreach ($pembayaran as $p){ ?>
                                     <tr>
                                     <td class="text-center"><?= $no++ ?></td>
-                                        <td class="text-center"><?= $li['event_id']; ?></td>
-                                        <td ><?= $li['judul']; ?></td>
-                                        <td class="text-center"><?= $li['category_id']; ?></td>
-                                        <td class="text-center"><?= $li['deskripsi']; ?></td>
-                                        <td class="text-center"><?= $li['author']; ?></td>
-                                        <td class="text-center"><?= date('d-m-Y',$li['date_created']); ?></td>
-                                        <td class="text-center"><?= $li['harga']; ?></td>
-                                        <td class="text-center"><?= $li['kuota']; ?></td>
-                                        <td class="text-center"><?= $li['tgl_event']; ?></td>
-                                        <td class="text-center"><?= $li['status']; ?></td>
-                                        <td >
-                                            <img src="<?= base_url('assets/images/event/'. $li['gambar']); ?>" class="img-thumbnail" alt="">
-                                            </a> 
+                                        <td class="text-center"><?= $p['order_id']; ?></td>
+                                        <td class="text-center"><?= $p['event']; ?></td>
+                                        <td ><?= $p['judul']; ?></td>
+                                        <td class="text-center"><?= $p['nama']; ?></td>
+                                        <td class="text-center"><?= $p['gross_amount']; ?></td>
+                                        <td class="text-center"><?= $p['payment_type']; ?></td>
+                                        <td class="text-center"><?= $p['transaction_time']; ?></td>
+                                        <td class="text-center"><?= $p['bank']; ?></td>
+                                        <td class="text-center">
+                                        <?php if ($p['transaction_status'] == 'pending') { ?>
+                                            <span class="badge rounded-pill bg-warning text-white">Pending</span>
+                                        <?php } else if ($p['transaction_status'] == 'failure' or $p['transaction_status'] == 'expire'){ ?>
+                                            <span class="badge rounded-pill bg-danger text-dark">Failed</span>
+                                        <?php } else if ($p['transaction_status'] == 'settlement' or $p['transaction_status'] == 'success' ){ ?>
+                                            <span class="badge rounded-pill bg-success text-dark">Success</span>
+                                        <?php }else { ?>
+                                        <?= $p['transaction_status']; ?>
+                                            <span class="badge rounded-pill bg-success text-dark">Success</span>
+                                        <?php } ?>
                                         </td>
                                         <td class="text-center">
-                                        <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url('Event/edit_event/' .$li['id']) ?>"> <i class="fa fa-pencil-alt"></i> Edit</a>
-                                        <a href="<?= base_url('Event/hapus_event/' .$li['id']) ?>" class="btn btn-small btn-danger">Hapus</a>
+                                        <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url('transaction/verifikasi/' .$p['id']) ?>"> <i class="fa fa-pencil-alt"></i> Verifikasi</a>
+                                        <a href="<?= base_url('Pembayaran/hapus/pembayaran/' .$p['id']) ?>" class="btn btn-small btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php } ?>

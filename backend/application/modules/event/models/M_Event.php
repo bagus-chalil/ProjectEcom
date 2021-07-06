@@ -62,4 +62,22 @@ class M_Event extends CI_Model
         $this->db->where($data);
         return $this->db->get();
     }
+    public function getJmlEvent(){
+        $query = "SELECT COUNT(event_id) as jml FROM event 
+        ";
+        return $this->db->query($query)->result_array();
+    }
+    public function getJmlStatusTutup(){
+        $query = "SELECT COUNT(status) as statusf FROM event where status=1";
+        return $this->db->query($query)->result_array();
+    }
+    public function getJmlStatusTersedia(){
+        $query = "SELECT COUNT(status) as statuss FROM event where status=0";
+        return $this->db->query($query)->result_array();
+    }
+    public function getJmlStatusEvent(){
+        $bulan=date("m");
+        $query = "SELECT COUNT(event_id) as jmlb FROM event where month(tgl_event)=".$bulan;
+        return $this->db->query($query)->result_array();
+    }
 }

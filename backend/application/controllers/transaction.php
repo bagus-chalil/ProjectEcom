@@ -29,6 +29,7 @@ class Transaction extends CI_Controller {
 		$this->load->library('veritrans');
 		$this->veritrans->config($params);
 		$this->load->helper('url');
+		$this->load->model('Snap_Model','snap');
 		
     }
 
@@ -43,6 +44,19 @@ class Transaction extends CI_Controller {
     	$this->load->view('midtrans/transaction',$data);
 		$this->load->view('Templates/footer',$data);
     }
+	public function verifikasi($id)
+	{
+		$data['title'] = "Halaman Cek Transaksi";
+		$data['user'] = $this->db->get_where('user', ['email' =>
+		$this->session->userdata('email')])->row_array();
+		$data['detail'] = $this->snap->getOrderId($id);
+		
+		$this->load->view('Templates/header', $data);
+		$this->load->view('Templates/topbar', $data);
+		$this->load->view('Templates/sidebar',$data);
+    	$this->load->view('pembayaran/status_transaksi',$data);
+		$this->load->view('Templates/footer',$data);
+	}
 
     public function process()
     {

@@ -1,7 +1,4 @@
-<html>
-<head>
-	<title>Checkout</title>
-</head>
+
 <body>
 
 	<h1>Transaction action</h1>
@@ -19,5 +16,3 @@
 			</p>
 			<button class="submit-button" type="submit">Submit Payment</button>
 	</form>
-</body>
-</html>

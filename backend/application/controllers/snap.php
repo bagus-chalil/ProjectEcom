@@ -76,7 +76,7 @@ class Snap extends CI_Controller {
 		  $shipping_address = array(
 			'first_name'    => "Obet",
 			'last_name'     => "Supriadi",
-			'address'       => $this->input->post('id_event'),
+			'address'       => $this->input->post('event'),
 			'phone'         => "08113366345",
 			'country_code'  => 'IDN'
 		  );
@@ -86,6 +86,7 @@ class Snap extends CI_Controller {
 			'first_name'    => $this->input->post('nama'),
 			'email'         => $this->input->post('email'),
 			'phone'         => $this->input->post('telephone'),
+			'event'         => $this->input->post('event')
 		  );
   
 		  // Data yang akan dikirim untuk request redirect_url.
@@ -153,12 +154,15 @@ class Snap extends CI_Controller {
 		}else{
 			$permata_va_number='-';
 		}
-
+		$event = $this->input->post('event');
+		$nama = $this->input->post('nama');
 		$data=[
+			'event'=>$event,
 			'status_code' => $result->status_code,
 			'status_message' => $result->status_message,
 			'transaction_id' => $result->transaction_id,
 			'order_id' => $result->order_id,
+			'nama'=>$nama,
 			'gross_amount' => $result->gross_amount,
 			'payment_type' => $result->payment_type,
 			'transaction_time' => $result->transaction_time,

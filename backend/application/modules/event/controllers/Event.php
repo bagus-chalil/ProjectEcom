@@ -76,6 +76,10 @@ class Event extends CI_Controller
 		$data['title'] = "Halaman Tabel Event";
 		$data['kategori'] = $this->event->getDataKategori()->result();
 		$data['list_event']=$this->event->getDataEvent()->result_array();
+		$data['get_jmlevent']=$this->event->getJmlEvent();
+		$data['get_jmleventbln']=$this->event->getJmlStatusEvent();
+		$data['get_jmltutup']=$this->event->getJmlStatusTutup();
+		$data['get_jmltersedia']=$this->event->getJmlStatusTersedia();
 
 		$this->load->view('Templates/header',$data);
 		$this->load->view('Templates/topbar',$data);

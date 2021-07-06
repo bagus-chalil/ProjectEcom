@@ -51,13 +51,12 @@
           <div class="portfolio-info">
             <h4 class="mb-3"><i class="fas fa-user"></i> <b>Informasi Pribadi</b></h4>
             
-            <form id="payment-form" method="post" action="<?=base_url()?>/snap/finish">
+                            <form id="payment-form" method="post" action="<?=base_url()?>/snap/finish">
                               <input type="hidden" name="result_type" id="result-type" value=""></div>
                               <input type="hidden" name="result_data" id="result-data" value=""></div>
-                            </form>
-                        <form>
-                            <div class="form-group">
-                              <input class="form-control" type="text" id="id_event" name="id_event" value="<?= $detailbayar['event_id'] ?>">
+                            
+                              <div class="form-group">
+                            <input type="hidden" readonly class="form-control" id="event" name="event" value="<?= $detailbayar['event_id'] ?>">
                             </div>
                             <div class="form-group">
                               <input class="form-control" type="hidden" id="price" name="price" value="<?= $detailbayar['harga'] ?>">
@@ -77,7 +76,7 @@
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Nama</label>
-                              <input type="text" class="form-control" id="nama"
+                              <input type="text" class="form-control" id="nama" name="nama"
                               value="<?= $detailbayar['name'] ?>">
                             </div>
                             <div class="mb-3">
@@ -107,7 +106,7 @@
                 event.preventDefault();
                 $(this).attr("disabled", "disabled");
                 
-                var id_event            = $("#id_event").val();
+                var event            = $("#event").val();
                 var price         = $("#price").val();
                 var quantity      = $("#quantity").val();
                 var name          = $("#name").val();
@@ -119,7 +118,16 @@
               $.ajax({
                 method : 'POST',
                 url: '<?=site_url()?>/snap/token',
-                data : {id_event: id_event, price: price, quantity: quantity, name: name, gross_amount: gross_amount, email: email,nama: nama, telephone: telephone},
+                data : {
+                  event: event, 
+                  price: price, 
+                  quantity: quantity, 
+                  name: name, 
+                  gross_amount: gross_amount, 
+                  email: email,
+                  nama: nama, 
+                  telephone: telephone
+                },
                 cache: false,
 
                 success: function(data) {
