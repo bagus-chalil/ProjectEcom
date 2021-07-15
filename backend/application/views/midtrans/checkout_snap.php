@@ -50,18 +50,18 @@
 
           <div class="portfolio-info">
             <h4 class="mb-3"><i class="fas fa-user"></i> <b>Informasi Pribadi</b></h4>
-            
+          
                             <form id="payment-form" method="post" action="<?=base_url()?>/snap/finish">
-                              <input type="hidden" name="result_type" id="result-type" value=""></div>
-                              <input type="hidden" name="result_data" id="result-data" value=""></div>
+                              <input type="hidden" name="result_type" id="result-type" value="">
+                              <input type="hidden" name="result_data" id="result-data" value="">
                             
-                              <div class="form-group">
+                              <div class="form-group ">
                             <input type="hidden" readonly class="form-control" id="event" name="event" value="<?= $detailbayar['event_id'] ?>">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ">
                               <input class="form-control" type="hidden" id="price" name="price" value="<?= $detailbayar['harga'] ?>">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ">
                               <input class="form-control" type="hidden" id="quantity" name="quantity" value="1">
                             </div>
                             <div class="form-group">
@@ -69,29 +69,28 @@
                             </div>
                               <input class="form-control" type="hidden" id="gross_amount" name="gross_amount" value="<?= $detailbayar['harga'] ?>">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group ">
                               <label for="menuname">Email</label>
                             <input type="email" readonly class="form-control" id="email" aria-describedby="emailHelp"
                               value="<?= $detailbayar['email'] ?>">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 form-group">
                               <label for="exampleInputPassword1" class="form-label">Nama</label>
                               <input type="text" class="form-control" id="nama" name="nama"
                               value="<?= $detailbayar['name'] ?>">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 form-group ">
                               <label for="exampleInputPassword1" class="form-label">No Telp</label>
                               <input type="text" class="form-control" id="telephone"
                               value="<?= $detailbayar['telephone'] ?>">
                             </div>
-                            <button class="btn btn-primary" id="pay-button">Bayar</button>
-                            <a class="btn btn-primary" href="<?= base_url('transaction')?>">Cek Transaksi</a>
+                            <button class="btn btn-primary btn-lg btn-block" id="pay-button">Bayar</button>
                           </form>
         </div>
 
       </div>
-
-
+    </div>
+    </div>
 
 
     </div>

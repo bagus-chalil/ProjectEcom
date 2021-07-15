@@ -71,7 +71,14 @@
                             <label for="Tanggal">Tanggal Pelaksanaan*</label>
                             <?php $date = date_create($data_edit->tgl_event); ?>
                             <input type="datetime-local" class="form-control" name="tgl_event" min="<?= date_format($date,'Y-m-d\TH:i') ?>" value="<?= date_format($date,'Y-m-d\TH:i') ?>" required>
-                          </div> 
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-sm-2 mb-3">Thumbnail*</div>
+                            <div class="col-sm-12">
+                                  <input type="file" name="thumbs" class="form-control dropify" data-default-file="<?= base_url('assets/images/event/thumbs/') .$data_edit->thumbs;  ?>" data-width="1024" data-height="768">
+                                  <span>Standar ukuran Thumbnail produk haruslah menggunakan <b class="text-danger">1024x768</b> pixels</span>  
+                              </div>
+                        </div>  
                           <div class="form-group row">
                             <div class="col-sm-2 mb-3">Gambar*</div>
                             <div class="col-sm-12">
@@ -88,7 +95,7 @@
                                 </div>
                             </div>
                         </div> 
-                          <button type="submit" class="btn btn-primary btn-block">Upload Event</button>
+                          <button type="submit" name="submit" class="btn btn-primary btn-block">Upload Event</button>
                         </form>
                       </div>
                     </div>

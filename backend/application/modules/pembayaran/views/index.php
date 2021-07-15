@@ -119,7 +119,16 @@
                                         <?php } ?>
                                         </td>
                                         <td class="text-center">
-                                        <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url('transaction/verifikasi/' .$p['id']) ?>"> <i class="fa fa-pencil-alt"></i> Verifikasi</a>
+                                        <?php if ($p['transaction_status'] == 'pending') { ?>
+                                            <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url('transaction/verifikasi/' .$p['id']) ?>"> <i class="fa fa-pencil-alt"></i> Verifikasi</a>
+                                        <?php } else if ($p['transaction_status'] == 'failure' or $p['transaction_status'] == 'expire'){ ?>
+                                            
+                                        <?php } else if ($p['transaction_status'] == 'settlement' or $p['transaction_status'] == 'success' ){ ?>
+                                            
+                                        <?php }else { ?>
+                                        <?= $p['transaction_status']; ?>
+                                            
+                                        <?php } ?>
                                         <a href="<?= base_url('Pembayaran/hapus/pembayaran/' .$p['id']) ?>" class="btn btn-small btn-danger">Hapus</a>
                                         </td>
                                     </tr>
