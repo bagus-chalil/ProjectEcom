@@ -48,6 +48,22 @@
             <script src="<?= base_url('assets/dist') ?>/js/pages/datatable/datatable-basic.init.js"></script>
             <script src="<?= base_url('assets/dist/') ?>js/sidebarmenu.js "></script>
 
+            <!-- Dropify -->
+            <script type="text/javascript" src="<?= base_url().'assets/dropify/dropify.min.js'?>"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('.dropify').dropify({
+                        messages: {
+                            default: 'Drag atau drop untuk memilih gambar',
+                            replace: 'Ganti',
+                            remove:  'Hapus',
+                            error:   'error'
+                        }
+                    });
+                });
+                
+            </script>
+
             <!-- Javascript Chart -->
             <script src="<?= base_url('assets/') ?>libs/raphael/raphael.min.js"></script>
             <script src="<?= base_url('assets/') ?>libs/morris.js/morris.min.js"></script>
@@ -106,6 +122,16 @@
                     })
 
                 });
+            </script>
+            <script>
+                function setDarkMode(isDark){
+                    if (isDark) {
+                        document.body.setAttribute('id','darkmode')
+                    }else{
+                        document.body.setAttribute('id','')
+                    }
+
+                }
             </script>
             </body>
 

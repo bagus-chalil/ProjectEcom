@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label for="Nama">Kode Event*</label>
                             <input type="text" readonly class="form-control" name="event_id" value="<?php echo $event_id ?>">
-                            <?= form_error('judul');?>
+                           
                           </div>
                           <div class="form-group">
                             <label for="Nama">Nama Event*</label>
@@ -62,10 +62,15 @@
                             <input type="datetime-local" class="form-control" name="tgl_event" min="<?= date('Y-m-d\TH:1') ?>" value="<?= date('Y-m-d\TH:i') ?>" required>
                           </div> 
                           <div class="form-group">
+                            <label for="Gambar">Thumbnail*</label>
+                            <input type="file" name="thumbs" class="form-control dropify" data-width="100" data-height="150">
+                          </div>  
+                          <div class="form-group">
                             <label for="Gambar">Gambar*</label>
                             <input type="file"  name="gambar" class="form-control">
                           </div>  
-                          <button type="submit" class="btn btn-primary btn-block">Upload Event</button>
+                            
+                          <button type="submit" name="submit" class="btn btn-primary btn-block">Upload Event</button>
                         </form>
                       </div>
                     </div>

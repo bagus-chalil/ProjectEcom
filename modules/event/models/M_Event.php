@@ -45,10 +45,12 @@ class M_Event extends CI_Model
             $this->db->limit(1);
         return $this->db->get();
     }
-    public function delete_event($id)
+    public function delete_event($event_id)
     {
-        $this->db->where('id', $id);
+
+        $this->db->where('event_id', $event_id);
         return $this->db->delete('event');
+        return $this->db->delete('galery');
     }
     public function getDataEditEvent($id)
     {
@@ -61,5 +63,23 @@ class M_Event extends CI_Model
         $this->db->join('user','event.author = user.id');
         $this->db->where($data);
         return $this->db->get();
+    }
+    public function getJmlEvent(){
+        $query = "SELECT COUNT(event_id) as jml FROM event 
+        ";
+        return $this->db->query($query)->result_array();
+    }
+    public function getJmlStatusTutup(){
+        $query = "SELECT COUNT(status) as statusf FROM event where status=1";
+        return $this->db->query($query)->result_array();
+    }
+    public function getJmlStatusTersedia(){
+        $query = "SELECT COUNT(status) as statuss FROM event where status=0";
+        return $this->db->query($query)->result_array();
+    }
+    public function getJmlStatusEvent(){
+        $bulan=date("m");
+        $query = "SELECT COUNT(event_id) as jmlb FROM event where month(tgl_event)=".$bulan;
+        return $this->db->query($query)->result_array();
     }
 }

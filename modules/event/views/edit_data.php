@@ -14,11 +14,11 @@
                         <h2><b> Form Edit Event Online</b></h2>
                       </div>
                       <div class="card-body">
-                      <form action="<?= base_url('Event/edit_produk') ?>" method="POST" enctype="multipart/form-data"> 
+                      <form action="<?= base_url('Event/edit_event2/'.$data_edit->id) ?>" method="POST" enctype="multipart/form-data"> 
                           <div class="form-group">
                             <label for="Nama">Kode Event*</label>
                             <input type="hidden" class="form-control" name="id" value="<?= $data_edit->id ?>">
-                            <input type="text" class="form-control" name="event_id" value="<?= $data_edit->event_id ?>">
+                            <input type="text" readonly class="form-control" name="event_id" value="<?= $data_edit->event_id ?>">
                             <?= form_error('judul');?>
                           </div>
                           <div class="form-group">
@@ -73,22 +73,40 @@
                             <input type="datetime-local" class="form-control" name="tgl_event" min="<?= date_format($date,'Y-m-d\TH:i') ?>" value="<?= date_format($date,'Y-m-d\TH:i') ?>" required>
                           </div> 
                           <div class="form-group row">
+                            <div class="col-sm-2 mb-3">Thumbnail*</div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="<?= base_url('assets/images/event/thumbs/') .$data_edit->thumbs;  ?>" class="img-thumbnail" alt="">
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="custom-file">
+                                            <input type="file" name="thumbs" class="custom-file-input" name="thumbs" id="thumbs" required>
+                                            <label for="image" class="custom-file-label">Pilih Thumbnail</label>
+                                          </div>
+                                          <input type="hidden" value="<?= $data_edit->thumbs; ?>" name="thumbs1" id="thumbs1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                          <div class="form-group row">
                             <div class="col-sm-2 mb-3">Gambar*</div>
                             <div class="col-sm-12">
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <img src="<?= base_url('assets/images/event/') .$data_edit->gambar;  ?>" class="img-thumbnail" alt="">
                                     </div>
-                                    <div class="col-sm-9 mt-5">
+                                    <div class="col-sm-9">
                                         <div class="custom-file">
-                                            <input type="file" name="gambar" class="custom-file-input" id="gambar">
-                                            <label for="gambar" class="custom-file-label">Pilih Gambar</label>
-                                        </div>
+                                            <input type="file" name="gambar" class="custom-file-input" name="gambar" id="gambar" required>
+                                            <label for="image" class="custom-file-label">Pilih Gambar</label>
+                                          </div>
+                                          <input type="hidden" value="<?= $data_edit->gambar; ?>" name="gambar1" id="gambar1">
                                     </div>
                                 </div>
                             </div>
                         </div> 
-                          <button type="submit" class="btn btn-primary btn-block">Upload Event</button>
+                          <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block">Upload Event</button>
                         </form>
                       </div>
                     </div>

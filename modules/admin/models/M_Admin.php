@@ -42,7 +42,7 @@ class M_Admin extends CI_Model
     }
     function getPenjualanEvent(){
         $tahun=date("Y");
-        $query = "SELECT id,bulan,event from bulan 
+        $query = "SELECT id,bulan as bln,event from bulan 
         LEFT JOIN( 
             SELECT MONTH(tgl_event) AS name, COUNT(category_id) AS event 
             FROM event 
@@ -75,6 +75,21 @@ class M_Admin extends CI_Model
          JOIN user_role 
          ON user.role_id=user_role.id 
          GROUP BY (user_role.id)";
+    return $this->db->query($query);
+    }
+    function getJumlahUser(){
+        $query = 
+        "SELECT COUNT(id) as jml_user FROM user";
+    return $this->db->query($query);
+    }
+    function getJumlahEvent(){
+        $query = 
+        "SELECT COUNT(id) as jml_event FROM event";
+    return $this->db->query($query);
+    }
+    function getJumlahBlog(){
+        $query = 
+        "SELECT COUNT(id) as jml_blog FROM blog";
     return $this->db->query($query);
     }
 }

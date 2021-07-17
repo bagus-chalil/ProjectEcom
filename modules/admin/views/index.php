@@ -11,7 +11,11 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <div class="d-inline-flex align-items-center">
-                                        <h2 class="text-dark mb-1 font-weight-medium">236</h2>
+                                        <h2 class="text-dark mb-1 font-weight-medium">
+										<?php foreach ($get_jmluser as $ju) {
+											echo $ju['jml_user'];
+										}?>
+										</h2>
                                         <span class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">+18.33%</span>
                                     </div>
                                     <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Users</h6>
@@ -26,7 +30,11 @@
                         <div class="card-body">
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
-                                    <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup class="set-doller">$</sup>18,306</h2>
+                                    <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium">
+									<?php foreach ($get_jmlevent as $je) {
+											echo $je['jml_event'];
+										}?>
+									</h2>
                                     <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Event
                                     </h6>
                                 </div>
@@ -41,7 +49,11 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <div class="d-inline-flex align-items-center">
-                                        <h2 class="text-dark mb-1 font-weight-medium">1538</h2>
+                                        <h2 class="text-dark mb-1 font-weight-medium">
+										<?php foreach ($get_jmlblog as $jb) {
+											echo $jb['jml_blog'];
+										}?>
+										</h2>
                                         <span class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">-18.33%</span>
                                     </div>
                                     <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Blog</h6>
@@ -72,7 +84,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Chart Jumlah Event per bulan</h4>
                                 <?php foreach ($event_bulan as $em) {
-                                    $bulan[]= $em->bulan;
+                                    $bln[]= $em->bln;
                                     $totalevent[]=$em->event;
                                 }?>
                                 <div id="chart-tasks-overview"></div>
@@ -167,7 +179,7 @@
       			axisBorder: {
       				show: false,
       			},
-      			categories: <?= json_encode($bulan); ?>,
+      			categories: <?= json_encode($bln); ?>,
       		},
       		yaxis: {
       			labels: {

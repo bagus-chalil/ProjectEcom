@@ -5,7 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title><?= $title; ?></title>
+  <title> <?php if (isset($title['judul'])) {
+            echo $title['judul'];
+          } else {
+            echo $title;
+          }
+          ?></title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
@@ -24,10 +29,12 @@
   <link href="<?= base_url('assets/website') ?>/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?= base_url('assets/website') ?>/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="<?= base_url('assets/website') ?>/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?= base_url('assets/website') ?>/vendor/fonawesome/css/all.css" rel="stylesheet">
+  <link href="<?= base_url('assets/website') ?>/vendor/fontawesome/css/all.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/website') ?>/css/style.css" rel="stylesheet">
+  <link href="<?= base_url('assets/website/') ?>chosen/dist/css/component-chosen.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -37,21 +44,37 @@
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="<?= base_url('website') ?>" class="logo d-flex align-items-center">
         <img src="<?= base_url('assets/website') ?>/img/logo1.png" alt="">
         <span>Event Tech</span>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="<?= base_url('website/event') ?>">Event</a></li>
-          <li><a class="nav-link scrollto" href="<?= base_url('website/pricelist') ?>">Price List</a></li>
-          <li><a class="nav-link scrollto" href="<?= base_url('website/blog') ?>">Blog</a></li>
-          <li><a class="getstarted scrollto shadow" href="">
-              <i class="fas fa-user-alt me-2"></i>
-              Login
-            </a></li>
+          <li><a class="nav-link scrollto <?php if ($this->uri->segment(2) == "index") {
+                                            echo "active";
+                                          } ?>" href="<?= base_url('website/index') ?>">Home</a></li>
+          <li><a class="nav-link scrollto <?php if ($this->uri->segment(2) == "event") {
+                                            echo "active";
+                                          } ?>" href="<?= base_url('website/event') ?>">Event</a></li>
+          <li><a class="nav-link scrollto <?php if ($this->uri->segment(2) == "pricelist") {
+                                            echo "active";
+                                          } ?>" href="<?= base_url('website/pricelist') ?>">Price List</a></li>
+          <li><a class="nav-link scrollto <?php if ($this->uri->segment(2) == "blog") {
+                                            echo "active";
+                                          } ?>" href="<?= base_url('website/blog') ?>">Blog</a></li>
+          <?php if (!$this->session->userdata('email')) {
+          ?>
+            <li><a class="getstarted scrollto shadow" href="<?= base_url('login') ?>">
+                <i class="fas fa-user-alt me-2"></i>
+                Login
+              </a></li>
+          <?php
+          } else { ?>
+            <li><a href="<?= base_url('profil') ?>"><img src="<?= base_url('assets/images/users/' . $user['image']); ?>" class="rounded-circle" width="30px"></a></li>
+
+          <?php } ?>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

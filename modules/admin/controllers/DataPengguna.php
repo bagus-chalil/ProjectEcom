@@ -17,11 +17,11 @@ class DataPengguna extends CI_Controller
 
     $data['getuser'] = $this->db->get('user')->result_array();
 
-    $this->load->view('Templates/header', $data);
-    $this->load->view('Templates/topbar', $data);
-    $this->load->view('Templates/sidebar');
-    $this->load->view('Admin/pengguna/index');
-    $this->load->view('Templates/footer');
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('admin/pengguna/');
+    $this->load->view('templates/footer');
   }
   public function edit_pengguna($id)
   {
@@ -32,11 +32,11 @@ class DataPengguna extends CI_Controller
     $data['getuser'] = $this->pengguna->allPengguna()->result();
     $data['edit_id'] =    $this->pengguna->getPenggunaId($id)->row();
 
-    $this->load->view('Templates/header', $data);
-    $this->load->view('Templates/topbar', $data);
-    $this->load->view('Templates/sidebar');
-    $this->load->view('Admin/pengguna/edit_pengguna');
-    $this->load->view('Templates/footer');
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('admin/pengguna/edit_pengguna');
+    $this->load->view('templates/footer');
   }
   public function update_pengguna()
   {
@@ -74,7 +74,7 @@ class DataPengguna extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         User has been Update!
         </div>');
-        redirect('admin/datapengguna/index');
+        redirect('admin/DataPengguna/');
       } else {
         $old_image = $id['user']['image'];
         if ($old_image != 'default.jpg') {
@@ -93,7 +93,7 @@ class DataPengguna extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         User has been Update!
         </div>');
-        redirect('admin/datapengguna/index');
+        redirect('admin/DataPengguna/');
       }
     }
   }
@@ -103,6 +103,6 @@ class DataPengguna extends CI_Controller
     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
         User has been Deleted!
         </div>');
-    redirect('admin/datapengguna/index');
+    redirect('admin/DataPengguna/');
   }
 }
