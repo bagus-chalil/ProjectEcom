@@ -11,7 +11,7 @@ Branch adit - Aditya Ajie Nugroho (A22.2019.02756)
 - Testimonial
 - Website
 
-Branch adit - Mohammad Bagus Chalil Akbar (A22.2019.02733)
+Branch bagus - Mohammad Bagus Chalil Akbar (A22.2019.02733)
 - Admin
 - Event
 - Login
