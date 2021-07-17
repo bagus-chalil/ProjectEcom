@@ -1,6 +1,7 @@
 Projet Ecommerce Aplikasi Jasa Tiket Event Berbasis teknologi
 
 NAMA APLIKASI : EVENT TECH
+Demo Website : http://eventtech.masuk.id/
 
 Modul - modul yang dikerjakan
 
