@@ -18,6 +18,7 @@ class Event extends CI_Controller
 
 	public function index()
 	{
+		error_reporting(0);
 		$bulan=date('m');
 		$tahun=date('Y');
 		$thn=substr($tahun,2,2);
@@ -235,8 +236,7 @@ class Event extends CI_Controller
 				}
 			}else if (empty($_FILES['gambar'])){
 				$old_image = $this->input->post('gambar1');
-				var_dump($old_image);
-				die;
+				
 				if ($old_image != 'default.png') {
 					unlink(FCPATH. './assets/images/event/' . $old_image);
 				}

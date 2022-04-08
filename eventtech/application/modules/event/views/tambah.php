@@ -14,7 +14,7 @@
                         <h2><b> Form Tambah Event Online</b></h2>
                       </div>
                       <div class="card-body">
-                      <form action="<?= base_url('Event') ?>" method="POST" enctype="multipart/form-data">  
+                      <form action="<?= base_url('Mapel') ?>" method="POST" enctype="multipart/form-data">  
                         <div class="form-group">
                             <label for="Nama">Kode Event*</label>
                             <input type="text" readonly class="form-control" name="event_id" value="<?php echo $event_id ?>">

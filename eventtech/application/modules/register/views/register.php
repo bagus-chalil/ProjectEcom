@@ -5,7 +5,7 @@
                 <div class="col-lg-5 col-md-7  mx-auto bg-white">
                     <div class="p-3">
                     <div class="text-center">
-                            <img src="<?=base_url('assets/')?>images/logo1.png" style="max: width 100px;max-height: 100px;" alt="wrapkit">
+                    <img src="<?=base_url('assets/')?>images/logo1.png" style="max: width 100px;max-height: 100px;" alt="wrapkit">
                         </div>
                         <h2 class="mt-3 text-center">Sign Up for Free</h2>
                         <form class="mt-4" method="post" action="<?= base_url('Register'); ?>">

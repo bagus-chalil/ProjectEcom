@@ -55,7 +55,8 @@
                                 <label for="menuname">Menu Name</label>
                                 <input class="form-control" type="text" id="menu" name="menu" required>
                                     <br>
-                                    <button type="submit" class="btn btn-block btn-primary">Selesai</button>
+                                    
+                                    <button type="submit" class="btn btn-block btn-primary">Submit</button>
                                 </div>
                             </form>
                             </div>

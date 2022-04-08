@@ -105,6 +105,12 @@
                 })
             </script>
             <script>
+                // Simple Datatable
+                let table1 = document.querySelector('#table1');
+                let dataTable = new simpleDatatables.DataTable(table1);
+            </script>
+            <!--Ajax Checkbox -->
+            <script>
                 $('.form-check-input').on('click', function() {
                     const menuId = $(this).data('menu');
                     const roleId = $(this).data('role');

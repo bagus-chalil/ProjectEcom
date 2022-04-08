@@ -130,166 +130,166 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <script>
-      // @formatter:off
-      document.addEventListener("DOMContentLoaded", function () {
-      	window.ApexCharts && (new ApexCharts(document.getElementById('chart-tasks-overview'), {
-      		chart: {
-      			type: "bar",
-      			fontFamily: 'inherit',
-      			height: 320,
-      			parentHeightOffset: 0,
-      			toolbar: {
-      				show: false,
-      			},
-      			animations: {
-      				enabled: false
-      			},
-      		},
-      		plotOptions: {
-      			bar: {
-      				columnWidth: '50%',
-      			}
-      		},
-      		dataLabels: {
-      			enabled: false,
-      		},
-      		fill: {
-      			opacity: 1,
-      		},
-      		series: [{
-      			name: "Total Event",
-      			data: <?= json_encode($totalevent); ?>
-      		}],
-      		grid: {
-      			padding: {
-      				top: -20,
-      				right: 0,
-      				left: -4,
-      				bottom: -4
-      			},
-      			strokeDashArray: 4,
-      		},
-      		xaxis: {
-      			labels: {
-      				padding: 0
-      			},
-      			tooltip: {
-      				enabled: false
-      			},
-      			axisBorder: {
-      				show: false,
-      			},
-      			categories: <?= json_encode($bln); ?>,
-      		},
-      		yaxis: {
-      			labels: {
-      				padding: 4
-      			},
-      		},
-      		colors: ["#206bc4"],
-      		legend: {
-      			show: false,
-      		},
-      	})).render();
-      });
-      // @formatter:on
-    </script>
-    <script>
-      // @formatter:off
-      document.addEventListener("DOMContentLoaded", function () {
-      	window.ApexCharts && (new ApexCharts(document.getElementById('chart-line-stroke'), {
-      		chart: {
-      			type: "line",
-      			fontFamily: 'inherit',
-      			height: 240,
-      			parentHeightOffset: 0,
-      			toolbar: {
-      				show: false,
-      			},
-      			animations: {
-      				enabled: false
-      			},
-      		},
-      		fill: {
-      			opacity: 1,
-      		},
-      		stroke: {
-      			width: 2,
-      			lineCap: "round",
-      			curve: "straight",
-      		},
-      		series: [{
-      			name: "Webinar",
-      			data: <?= json_encode($webinar); ?>
-      		},{
-      			name: "Workshop",
-      			data: <?= json_encode($lomba); ?>
-      		},{
-      			name: "Lomba",
-      			data: <?= json_encode($workshop); ?>
-      		}],
-      		grid: {
-      			padding: {
-      				top: -20,
-      				right: 0,
-      				left: -4,
-      				bottom: -4
-      			},
-      			strokeDashArray: 4,
-      		},
-      		xaxis: {
-      			labels: {
-      				padding: 0
-      			},
-      			tooltip: {
-      				enabled: false
-      			},
-      			categories: <?= json_encode($bulan); ?>,
-      		},
-      		yaxis: {
-      			labels: {
-      				padding: 4
-      			},
-      		},
-      		colors: ["#ff922b", "#206bc4", "#5eba00"],
-      		legend: {
-      			show: false,
-      		},
-      	})).render();
-      });
-      // @formatter:on
-    </script>
-    <script>
-      // @formatter:off
-      document.addEventListener("DOMContentLoaded", function () {
-      	window.ApexCharts && (new ApexCharts(document.getElementById('chart-total-pie'), {
-      		chart: {
-      			type: "pie",
-      			fontFamily: 'inherit',
-      			height: 240,
-      			sparkline: {
-      				enabled: true
-      			},
-      			animations: {
-      				enabled: false
-      			},
-      		},
-      		fill: {
-      			opacity: 1,
-      		},
-      		series: <?= json_encode($position,JSON_NUMERIC_CHECK); ?>,
-      		labels: <?= json_encode($role); ?>,
-      		grid: {
-      			strokeDashArray: 4,
-      		},
-      		colors: ["#206bc4", "#79a6dc", "#bfe399", "#e9ecf1"],
-      		legend: {
-      			show: false,
-      		},
-      		tooltip: {
-      			fillSeriesColor: false
-      		},
-      	})).render();
-      });
-      // @formatter:on
-    </script>
+		// @formatter:off
+		document.addEventListener("DOMContentLoaded", function () {
+			window.ApexCharts && (new ApexCharts(document.getElementById('chart-tasks-overview'), {
+				chart: {
+					type: "bar",
+					fontFamily: 'inherit',
+					height: 320,
+					parentHeightOffset: 0,
+					toolbar: {
+						show: false,
+					},
+					animations: {
+						enabled: false
+					},
+				},
+				plotOptions: {
+					bar: {
+						columnWidth: '50%',
+					}
+				},
+				dataLabels: {
+					enabled: false,
+				},
+				fill: {
+					opacity: 1,
+				},
+				series: [{
+					name: "Total Event",
+					data: <?= json_encode($totalevent); ?>
+				}],
+				grid: {
+					padding: {
+						top: -20,
+						right: 0,
+						left: -4,
+						bottom: -4
+					},
+					strokeDashArray: 4,
+				},
+				xaxis: {
+					labels: {
+						padding: 0
+					},
+					tooltip: {
+						enabled: false
+					},
+					axisBorder: {
+						show: false,
+					},
+					categories: <?= json_encode($bln); ?>,
+				},
+				yaxis: {
+					labels: {
+						padding: 4
+					},
+				},
+				colors: ["#206bc4"],
+				legend: {
+					show: false,
+				},
+			})).render();
+		});
+		// @formatter:on
+		</script>
+		<script>
+		// @formatter:off
+		document.addEventListener("DOMContentLoaded", function () {
+			window.ApexCharts && (new ApexCharts(document.getElementById('chart-line-stroke'), {
+				chart: {
+					type: "line",
+					fontFamily: 'inherit',
+					height: 240,
+					parentHeightOffset: 0,
+					toolbar: {
+						show: false,
+					},
+					animations: {
+						enabled: false
+					},
+				},
+				fill: {
+					opacity: 1,
+				},
+				stroke: {
+					width: 2,
+					lineCap: "round",
+					curve: "straight",
+				},
+				series: [{
+					name: "Webinar",
+					data: <?= json_encode($webinar); ?>
+				},{
+					name: "Workshop",
+					data: <?= json_encode($lomba); ?>
+				},{
+					name: "Lomba",
+					data: <?= json_encode($workshop); ?>
+				}],
+				grid: {
+					padding: {
+						top: -20,
+						right: 0,
+						left: -4,
+						bottom: -4
+					},
+					strokeDashArray: 4,
+				},
+				xaxis: {
+					labels: {
+						padding: 0
+					},
+					tooltip: {
+						enabled: false
+					},
+					categories: <?= json_encode($bulan); ?>,
+				},
+				yaxis: {
+					labels: {
+						padding: 4
+					},
+				},
+				colors: ["#ff922b", "#206bc4", "#5eba00"],
+				legend: {
+					show: false,
+				},
+			})).render();
+		});
+		// @formatter:on
+		</script>
+		<script>
+		// @formatter:off
+		document.addEventListener("DOMContentLoaded", function () {
+			window.ApexCharts && (new ApexCharts(document.getElementById('chart-total-pie'), {
+				chart: {
+					type: "pie",
+					fontFamily: 'inherit',
+					height: 240,
+					sparkline: {
+						enabled: true
+					},
+					animations: {
+						enabled: false
+					},
+				},
+				fill: {
+					opacity: 1,
+				},
+				series: <?= json_encode($position,JSON_NUMERIC_CHECK); ?>,
+				labels: <?= json_encode($role); ?>,
+				grid: {
+					strokeDashArray: 4,
+				},
+				colors: ["#206bc4", "#79a6dc", "#bfe399", "#e9ecf1"],
+				legend: {
+					show: false,
+				},
+				tooltip: {
+					fillSeriesColor: false
+				},
+			})).render();
+		});
+		// @formatter:on
+		</script>
